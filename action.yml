@@ -1,0 +1,16 @@
+# action.yml
+name: 'SOS action'
+description: 'Run sos from Docker'
+inputs:
+  nameofrule:  # id of input
+    description: 'name of SOS rule'
+    required: true
+    default: 'default'
+outputs:
+  site: # id of output
+    description: 'The file we need'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.nameofrule }}
